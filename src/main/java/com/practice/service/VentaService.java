@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VentaService {
-    public List<Venta> listarVentas();
-    public Venta obtenerVentaPorId(Integer id);
-    public Venta guardarVenta(Venta venta);
-    public Venta actualizarVenta(Integer id, Venta venta);
-    public void eliminarVenta(Integer id);
-    public List<VentaDetalle> obtenerDetallesDeVenta(Integer idVenta);
-    public Optional<VentaDetalle> obtenerDetalleEspecifico(Integer idVenta, Integer idVentaDet);
-    public VentaDetalle guardarDetalle(VentaDetalle detalle);
-    public void eliminarDetalle(Integer idVentaDet);
+    List<Venta> listarVentas();
+    Venta obtenerVentaPorId(Integer id);
+    Venta guardarVenta(Venta venta);
+    Venta actualizarVenta(Integer id, Venta venta);
+    void eliminarVenta(Integer id);
+    List<VentaDetalle> obtenerDetallesDeVenta(Integer idVenta);
+    Optional<VentaDetalle> obtenerDetalleEspecifico(Integer idVenta, Integer idVentaDet);
+    VentaDetalle guardarDetalle(VentaDetalle detalle);
+    void eliminarDetalle(Integer idVentaDet);
 }
