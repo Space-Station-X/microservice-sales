@@ -2,11 +2,14 @@ package com.practice.service.impl;
 
 import com.practice.entity.Venta;
 import com.practice.entity.VentaDetalle;
+import com.practice.exceptions.SalesNotFoundException;
 import com.practice.repository.VentaDetalleRepository;
 import com.practice.repository.VentaRepository;
 import com.practice.service.VentaService;
+
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -38,7 +41,7 @@ public class VentaServiceImpl implements VentaService {
     @Override
     public Venta actualizarVenta(Integer id, Venta venta) {
         Venta ventaExistente = ventaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Venta no encontrada con ID: " + id));
+                .orElseThrow(() -> new SalesNotFoundException("Venta no encontrada con ID: " + id));
 
         // Actualizar los campos permitidos
         if (venta.getIdCliente() != null) {
