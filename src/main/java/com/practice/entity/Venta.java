@@ -38,9 +38,10 @@ public class Venta {
     @Column(nullable = false)
     @JsonProperty("userId")
     private Integer idUsuario;
-    
-    @OneToMany(mappedBy = "venta") /*, cascade = CascadeType.ALL, fetch = FetchType.LAZY*/
+   
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference
     @JsonProperty("saleDetails")
     private List<VentaDetalle> detalles;
+
 }
