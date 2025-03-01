@@ -22,6 +22,13 @@ public class ClientSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
 //                .anonymous(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/index.html",
+                                "/"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtTokenValidatorFilter(jwtUtils), UsernamePasswordAuthenticationFilter.class);
